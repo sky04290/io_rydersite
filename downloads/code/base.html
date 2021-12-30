@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ryder | Ryder</title><meta name="author" content="FuGuiLiu"><meta name="copyright" content="FuGuiLiu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="防火墙命令开放端口firewall-cmd –zone&#x3D;public –add-port&#x3D;8080&#x2F;tcp –permanent  片段命令解析 -zone #作用域 -add-port&#x3D;80&#x2F;tcp #添加端口，格式为：端口&#x2F;通讯协议 -permanent #永久生效，没有此参数重启后失效    查看防火墙开放的端口列表firewall-cmd –list-all 重启防火墙firewall-c"><meta property="og:type" content="website"><meta property="og:title" content="Ryder"><meta property="og:url" content="https://ryder.pw/downloads/code/base"><meta property="og:site_name" content="Ryder"><meta property="og:description" content="防火墙命令开放端口firewall-cmd –zone&#x3D;public –add-port&#x3D;8080&#x2F;tcp –permanent  片段命令解析 -zone #作用域 -add-port&#x3D;80&#x2F;tcp #添加端口，格式为：端口&#x2F;通讯协议 -permanent #永久生效，没有此参数重启后失效    查看防火墙开放的端口列表firewall-cmd –list-all 重启防火墙firewall-c"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/favicon.png"><meta property="article:published_time" content="2021-11-12T03:19:47.622Z"><meta property="article:modified_time" content="2021-11-12T03:19:47.622Z"><meta property="article:author" content="FuGuiLiu"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/favicon.png"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/favicon.ico"><link rel="canonical" href="https://ryder.pw/downloads/code/base"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/css/rydersite/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/css/rydersite/lantern.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"Ryder",isPost:!1,isHome:!1,isHighlightShrink:!1,isToc:!1,postUpdate:"2021-11-12 11:19:47 11:19:47"}</script><noscript><style type="text/css">#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><script async src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/js/customized/randomBg.js"></script><script defer="defer" src="/live2d-widget/autoload.js"></script><div class="dengl"><div class="d-box"><div class="d1"><span></span><span><p></p></span><ul><li></li><li></li><li><span></span></li><li></li><li></li></ul></div><div class="d2"><span></span><span><p></p></span><ul><li></li><li></li><li><span></span></li><li></li><li></li></ul></div></div><div class="d-box1"><div class="d1"><span></span><span><p></p></span><ul><li></li><li></li><li><span></span></li><li></li><li></li></ul></div><div class="d2"><span></span><span><p></p></span><ul><li></li><li></li><li><span></span></li><li></li><li></li></ul></div></div></div><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/favicon.png" onerror='onerror=null,src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/friend_404.gif"' alt="avatar"></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i> <span>归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-play-circle"></i> <span>影院</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ryder</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i> <span>归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i> <span>标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i> <span>分类</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-play-circle"></i> <span>影院</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">Ryder</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><h2 id="防火墙命令"><a href="#防火墙命令" class="headerlink" title="防火墙命令"></a>防火墙命令</h2><h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><p>firewall-cmd –zone=public –add-port=8080/tcp –permanent</p><ul><li><strong>片段命令解析</strong><ul><li>-zone #作用域</li><li>-add-port=80/tcp #添加端口，格式为：端口/通讯协议</li><li>-permanent #永久生效，没有此参数重启后失效</li></ul></li></ul><h3 id="查看防火墙开放的端口列表"><a href="#查看防火墙开放的端口列表" class="headerlink" title="查看防火墙开放的端口列表"></a>查看防火墙开放的端口列表</h3><p>firewall-cmd –list-all</p><h2 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h2><p>firewall-cmd –reload</p><h3 id="Linux-查看端口占用情况"><a href="#Linux-查看端口占用情况" class="headerlink" title="Linux 查看端口占用情况"></a>Linux 查看端口占用情况</h3><p>lsof -i: 端口号</p><h3 id="查看服务器系统版本信息"><a href="#查看服务器系统版本信息" class="headerlink" title="查看服务器系统版本信息"></a>查看服务器系统版本信息</h3><p>cat /etc/os-release</p><h3 id="更新yum软件包索引"><a href="#更新yum软件包索引" class="headerlink" title="更新yum软件包索引"></a>更新yum软件包索引</h3><p>yum makechace fast</p></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/favicon.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/friend_404.gif"' alt="avatar"><div class="author-info__name">FuGuiLiu</div><div class="author-info__description">一个分享anything的网站</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/FuGuiLiu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FuGuiLiu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:liu997121@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://wpa.qq.com/msgrd?v=3&amp;uin=997121416&amp;site=qq&amp;menu=yes" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/wechat/myWeChat.png" rel="external nofollow noreferrer" target="_blank" title="WeChat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://t.me/ArthurRyder" rel="external nofollow noreferrer" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Welcome here</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/2527399118.html/" title="Github当本地项目push提交代码服务器同步更新拉取pull"><img src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/default/defaultCover.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/404.jpg"' alt="Github当本地项目push提交代码服务器同步更新拉取pull"></a><div class="content"><a class="title" href="/posts/2527399118.html/" title="Github当本地项目push提交代码服务器同步更新拉取pull">Github当本地项目push提交代码服务器同步更新拉取pull</a><time datetime="2021-12-28T01:24:17.000Z" title="发表于 2021-12-28 09:24:17 09:24:17">2021-12-28 09:24:17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/513862678.html/" title="nginx动态封禁ip"><img src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/nginx/NginxLogo.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/404.jpg"' alt="nginx动态封禁ip"></a><div class="content"><a class="title" href="/posts/513862678.html/" title="nginx动态封禁ip">nginx动态封禁ip</a><time datetime="2021-11-20T02:01:02.000Z" title="发表于 2021-11-20 10:01:02 10:01:02">2021-11-20 10:01:02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3452818482.html/" title="Java工具库"><img src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/java/JavaLogo.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/404.jpg"' alt="Java工具库"></a><div class="content"><a class="title" href="/posts/3452818482.html/" title="Java工具库">Java工具库</a><time datetime="2021-11-19T08:34:30.000Z" title="发表于 2021-11-19 16:34:30 16:34:30">2021-11-19 16:34:30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3805101379.html/" title="如何合理得使用java线程池"><img src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/java/JavaLogo.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/404.jpg"' alt="如何合理得使用java线程池"></a><div class="content"><a class="title" href="/posts/3805101379.html/" title="如何合理得使用java线程池">如何合理得使用java线程池</a><time datetime="2021-11-17T02:37:15.000Z" title="发表于 2021-11-17 10:37:15 10:37:15">2021-11-17 10:37:15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2139061995.html/" title="SpringBoot线程池"><img src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/images/springboot/SpringBootLoGo.png" onerror='this.onerror=null,this.src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/img/404.jpg"' alt="SpringBoot线程池"></a><div class="content"><a class="title" href="/posts/2139061995.html/" title="SpringBoot线程池">SpringBoot线程池</a><time datetime="2021-11-17T00:39:21.000Z" title="发表于 2021-11-17 08:39:21 08:39:21">2021-11-17 08:39:21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i> <span>分类</span><a class="card-more-btn" href="/categories/" title="查看更多"><i class="fas fa-angle-right"></i></a></div><ul class="card-category-list" id="aside-cat-list"><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Github/"><span class="card-category-list-name">Github</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Maven/"><span class="card-category-list-name">Maven</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/MyBatis/"><span class="card-category-list-name">MyBatis</span><span class="card-category-list-count">1</span></a></li></ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Docker/" style="font-size:1.1em;color:#999">Docker</a> <a href="/tags/Git/" style="font-size:1.1em;color:#999">Git</a> <a href="/tags/Github-Webhook/" style="font-size:1.1em;color:#999">Github Webhook</a> <a href="/tags/Java/" style="font-size:1.5em;color:#99a9bf">Java</a> <a href="/tags/JavaScript/" style="font-size:1.1em;color:#999">JavaScript</a> <a href="/tags/Linux/" style="font-size:1.1em;color:#999">Linux</a> <a href="/tags/Maven/" style="font-size:1.1em;color:#999">Maven</a> <a href="/tags/MyBatis/" style="font-size:1.1em;color:#999">MyBatis</a> <a href="/tags/MyBatisPlus/" style="font-size:1.1em;color:#999">MyBatisPlus</a> <a href="/tags/MySQL/" style="font-size:1.1em;color:#999">MySQL</a> <a href="/tags/Nginx/" style="font-size:1.3em;color:#99a1ac">Nginx</a> <a href="/tags/NodeJsNpm/" style="font-size:1.1em;color:#999">NodeJsNpm</a> <a href="/tags/PHP/" style="font-size:1.1em;color:#999">PHP</a> <a href="/tags/Redis/" style="font-size:1.1em;color:#999">Redis</a> <a href="/tags/Scala/" style="font-size:1.1em;color:#999">Scala</a> <a href="/tags/Semantic/" style="font-size:1.1em;color:#999">Semantic</a> <a href="/tags/Spring/" style="font-size:1.1em;color:#999">Spring</a> <a href="/tags/SpringBoot/" style="font-size:1.3em;color:#99a1ac">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size:1.1em;color:#999">SpringMVC</a> <a href="/tags/Vue/" style="font-size:1.1em;color:#999">Vue</a> <a href="/tags/hexo%E7%B3%BB%E5%88%97/" style="font-size:1.3em;color:#99a1ac">hexo系列</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/" style="font-size:1.1em;color:#999">网络相关</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">21</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">27</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2021-12-30T06:59:06.275Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By FuGuiLiu</div><div class="framework-info"><span>作者</span> <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/FuGuiLiu">GitHub</a><span class="footer-separator">|</span><span>Powered By</span> <span>刘富贵</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div></div><hr><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/js/utils.js"></script><script src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/gh/sky04290/io_rydersite@1.0.1/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery-ui@1.13.0/ui/widget.min.js"></script><script id="canvas_nest" defer="defer" color="0,123,255" opacity="0.7" zindex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
